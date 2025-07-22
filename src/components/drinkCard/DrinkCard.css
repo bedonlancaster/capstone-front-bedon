@@ -1,0 +1,25 @@
+.drink-card {
+    border: 2px solid #536a48;
+    border-radius: 10px;
+    padding: 1rem;
+    background: #fff;
+    margin: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(83, 106, 72, 0.05);
+    transition:
+        box-shadow 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+    text-align: center;
+    font-family: 'Georgia', serif;
+
+}
+
+.drink-card:hover {
+    box-shadow: 0 4px 16px rgba(83, 106, 72, 0.2);
+    border-color: #234c2a;
+    /* darker green on hover */
+    background: #fff99e;
+
+    cursor: pointer;
+}

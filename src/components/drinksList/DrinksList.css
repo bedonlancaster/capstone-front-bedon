@@ -1,0 +1,19 @@
+.drinks-list-container {
+    background: #ffedcf;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.drinks-list-title {
+    font-size: 2.5rem;
+    color: #536a48;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}

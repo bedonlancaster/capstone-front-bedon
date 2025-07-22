@@ -1,0 +1,82 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background: #fff1da;
+    border-bottom: 2px solid #536a48;
+    padding: 1.2rem 3rem;
+    /* Increased padding */
+    border-radius: 0 0 20px 20px;
+    /* Slightly more rounded */
+    box-shadow: 0 2px 8px rgba(83, 106, 72, 0.07);
+    z-index: 1000;
+    margin-bottom: 0;
+    gap: 2.5rem;
+    /* Slightly more gap */
+}
+
+.navbar-logo-link {
+    display: flex;
+    align-items: center;
+    margin-right: 2.5rem;
+}
+
+.navbar-logo {
+    height: 70px;
+    /* Increased logo size */
+    width: auto;
+    display: block;
+}
+
+.navbar-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    /* Optional: keeps content from stretching too far */
+    margin: 0 auto;
+    padding-right: 2rem;
+    /* Adds space from the right edge */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+}
+
+.navbar-item a {
+    color: #536a48;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+}
+
+.navbar-item a:hover,
+.navbar-item a.active {
+    background: #536a48;
+    color: #fff5e5;
+}
+
+.navbar-link {
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 1px;
+}
+
+.navbar-logout {
+    margin-left: 2rem;
+}

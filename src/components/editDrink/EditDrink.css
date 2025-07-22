@@ -1,0 +1,125 @@
+.edit-drink-form,
+.edit-drink-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 8rem 2.5rem;
+    background: #fff5e5;
+    border: 2px solid #536a48;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(83, 106, 72, 0.10);
+    color: #234c2a;
+    font-family: 'Georgia', serif;
+}
+
+.edit-drink-form h2 {
+    margin-top: 0;
+    color: #536a48;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.edit-drink-form h3 {
+    color: #536a48;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.edit-drink-form input,
+.edit-drink-form select,
+.edit-drink-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #536a48;
+    border-radius: 8px;
+    background: #fff;
+    color: #234c2a;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.edit-drink-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.ingredient-row,
+.edit-ingredient-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.ingredient-row select,
+.ingredient-row input,
+.edit-ingredient-row select,
+.edit-ingredient-row input {
+    margin-bottom: 0;
+}
+
+.ingredient-row button,
+.edit-ingredient-row button {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    white-space: nowrap;
+}
+
+.ingredient-row button:hover,
+.edit-ingredient-row button:hover {
+    background: #b71c1c;
+}
+
+.edit-drink-form button[type="button"],
+.edit-drink-form button[type="submit"] {
+    background: #536a48;
+    color: #fff5e5;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    transition: background 0.2s;
+}
+
+.edit-drink-form button[type="button"]:hover,
+.edit-drink-form button[type="submit"]:hover {
+    background: #234c2a;
+}
+
+.edit-drink-form button[type="submit"] {
+    background: #536a48;
+    font-weight: bold;
+    padding: 1rem 2rem;
+}
+
+@media (max-width: 600px) {
+
+    .edit-drink-form,
+    .edit-drink-container {
+        padding: 1rem;
+        max-width: 98vw;
+    }
+
+    .ingredient-row,
+    .edit-ingredient-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ingredient-row button,
+    .edit-ingredient-row button {
+        margin-top: 0.5rem;
+    }
+}

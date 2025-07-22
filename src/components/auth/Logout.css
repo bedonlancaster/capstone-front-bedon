@@ -1,0 +1,19 @@
+.logout-btn {
+    padding: 8px 20px;
+    background: #536a48;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(83, 106, 72, 0.08);
+    margin-left: 2rem;
+}
+
+.logout-btn:hover {
+    background: #455a3d;
+    box-shadow: 0 4px 12px rgba(83, 106, 72, 0.1);
+}
