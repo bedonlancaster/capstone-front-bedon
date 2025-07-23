@@ -16,7 +16,7 @@ export const DrinksList = () => {
             <h2 className="drinks-list-title">Drinks List</h2>
             <div className="drinks-list">
                 {drinks.map(drink => (
-                    <Link key={drink.id} to={`/drinks/${drink.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link key={drink.id} to={`/drinks/${drink.id}`} className="drink-link">
                         <DrinkCard drink={drink} />
                     </Link>
                 ))}
