@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Add this import
+import { useNavigate } from "react-router-dom";
 import { getCocktails } from "../../services/cocktailService";
+import { getDrinkDetailsByDrinkId } from "../../services/drinkDetailsService";
 import "./DrinkDetails.css"
 
 export const DrinkDetails = ({ drinkId }) => {
     const [drink, setDrink] = useState(null);
     const [ingredients, setIngredients] = useState([]);
-    const navigate = useNavigate(); // Add this line
+    const navigate = useNavigate();
+    const loggedInEmployeeId = parseInt(localStorage.getItem("employeeId"));
 
     useEffect(() => {
         getCocktails().then(drinks => {
-            const found = drinks.find(d => d.id === Number(drinkId));
-            setDrink(found);
+            const chosenDrink = drinks.find(drink => drink.id === parseInt(drinkId));
+            setDrink(chosenDrink);
         });
-        fetch(`http://localhost:8088/drinkIngredients?drinkId=${drinkId}&_expand=ingredient`)
-            .then(res => res.json())
+        getDrinkDetailsByDrinkId(drinkId)
             .then(data => setIngredients(data));
     }, [drinkId]);
 
-    if (!drink) return <div>Loading...</div>;
+    if (drink === null) {
+        return <div>Hold on while we fetch your drink</div>;
+    }
 
     return (
         <div className="drink-details">
@@ -41,12 +44,14 @@ export const DrinkDetails = ({ drinkId }) => {
             <p>{drink.instructions}</p>
             <h4>Description</h4>
             <p>{drink.description}</p>
-            <button
-                className="edit-drink-btn"
-                onClick={() => navigate(`/drinks/${drinkId}/EditDrink`)}
-            >
-                Edit
-            </button>
+            {drink.employeeId === loggedInEmployeeId && (
+                <button
+                    className="edit-drink-btn"
+                    onClick={() => navigate(`/drinks/${drinkId}/EditDrink`)}
+                >
+                    Edit
+                </button>
+            )}
         </div>
     );
 };

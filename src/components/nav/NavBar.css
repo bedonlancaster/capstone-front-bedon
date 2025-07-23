@@ -80,3 +80,9 @@
 .navbar-logout {
     margin-left: 2rem;
 }
+
+/* Example: If these are the first two items in .navbar-links */
+.navbar-links .navbar-item:first-child,
+.navbar-links .navbar-item:nth-child(2) {
+    margin-left: 1.5rem;
+}

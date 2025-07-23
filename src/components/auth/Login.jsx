@@ -6,8 +6,8 @@ export const Login = ({ onLogin }) => {
     const [employeeName, setEmployeeName] = useState("")
     const navigate = useNavigate()
 
-    const handleLogin = (e) => {
-        e.preventDefault()
+    const handleLogin = (event) => {
+        event.preventDefault()
 
         fetch(
             `http://localhost:8088/employees?name=${encodeURIComponent(employeeName)}`
@@ -16,7 +16,8 @@ export const Login = ({ onLogin }) => {
             .then((foundEmployees) => {
                 if (foundEmployees.length === 1) {
                     const employee = foundEmployees[0]
-                    onLogin(employee) // Set logged in employee in App.jsx
+                    localStorage.setItem("employeeId", employee.id)
+                    onLogin(employee)
                     navigate("/")
                 } else {
                     window.alert("Invalid employee name")
@@ -35,7 +36,7 @@ export const Login = ({ onLogin }) => {
                             <input
                                 type="text"
                                 value={employeeName}
-                                onChange={(evt) => setEmployeeName(evt.target.value)}
+                                onChange={(event) => setEmployeeName(event.target.value)}
                                 className="form-control"
                                 placeholder="Employee Name"
                                 required

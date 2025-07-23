@@ -4,12 +4,11 @@ import { DrinkDetails } from "./components/drinkDetails/DrinkDetails";
 import { Welcome } from "./components/welcome/Welcome";
 import { NavBar } from "./components/nav/NavBar";
 import { CreateNewDrink } from "./components/createNewDrink/CreateNewDrink";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Login } from "./components/auth/Login";
-import { EditDrink } from "./components/editDrink/EditDrink"; // <-- import at the top
+import { EditDrink } from "./components/editDrink/EditDrink";
 
-
-function DrinkDetailsWrapper() {
+function DrinkDetailsWithParams() {
   const { drinkId } = useParams();
   return <DrinkDetails drinkId={drinkId} />;
 }
@@ -17,10 +16,23 @@ function DrinkDetailsWrapper() {
 function App() {
   const [loggedInEmployee, setLoggedInEmployee] = useState(null);
 
+
+  useEffect(() => {
+    const storedId = localStorage.getItem("employeeId");
+    if (storedId) {
+      fetch(`http://localhost:8088/employees/${storedId}`)
+        .then((res) => res.json())
+        .then((employee) => setLoggedInEmployee(employee));
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <NavBar
-        onLogout={() => setLoggedInEmployee(null)}
+        onLogout={() => {
+          setLoggedInEmployee(null);
+          localStorage.removeItem("employeeId");
+        }}
         loggedInEmployee={loggedInEmployee}
       />
       <div>
@@ -31,7 +43,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Welcome />} />
               <Route path="/DrinksList" element={<DrinksList />} />
-              <Route path="/drinks/:drinkId" element={<DrinkDetailsWrapper />} />
+              <Route path="/drinks/:drinkId" element={<DrinkDetailsWithParams />} />
               <Route path="/CreateNewDrink" element={<CreateNewDrink />} />
               <Route path="/drinks/:drinkId/EditDrink" element={<EditDrink />} />
             </Routes>
